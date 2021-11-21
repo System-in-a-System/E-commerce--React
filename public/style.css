@@ -1,0 +1,268 @@
+body {
+    background-color: black;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  /*----------------------- Containers -----------------------*/
+  .h-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: white;
+    overflow: hidden;
+  }
+  
+  .h-container div {
+    margin: 2px;
+    padding: 2px;
+    overflow: hidden;
+  }
+  
+  .v-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    overflow: hidden;
+  }
+  
+  .v-container div {
+    margin: 5px;
+    padding: 5px;
+    overflow: hidden;
+  }
+  
+  .left-corner-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .right-corner-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 10%;
+  }
+  
+  
+  /*---------------------- Header --------------------------*/
+  .logo-container img {
+    height: 6vw;
+  }
+  
+  .search-bar-container {
+    position: relative;
+  }
+  
+  .search-bar-container i {
+    position: absolute;
+    align-self: flex-end;
+    opacity: 0.5;
+    padding: 1px;
+  }
+  
+  .icon-container i {
+    margin: 5px;
+    font-size: 25px;
+  }
+  
+  
+  /*-------------------- Global navigation ---------------*/
+  .global-navigation ul {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 0px;
+    background-color: white;
+  }
+  
+  .global-navigation ul li {
+    display: inline-block;
+    list-style-type: none;
+    padding: 5px;
+  }
+  
+  a {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:hover {
+    color: rgb(204, 28, 28);
+  }
+  
+  
+  
+  /*-------------------------- Hero section ------------------------*/
+  .hero .intro {
+    align-self: flex-start;
+    width: 300px;
+    padding-left: 10px;
+    margin-right: 20px;
+  }
+  
+  .hero .intro button {
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(190, 0, 0);
+  }
+  
+  .hero .intro button:hover {
+    background-color: rgb(190, 0, 0);
+  }
+  
+  .hero img {
+    align-self: flex-end;
+    width: 68vw;
+  }
+  
+  
+  /*------------------------ Featured products section ---------------- */
+  h2 {
+    align-self: center;
+  }
+  
+  .mini-featured-img {
+    width: 22vw;
+  }
+  
+  .maxi-featured-img {
+    width: 45vw;
+    padding: 7px;
+  }
+  
+  .mini-featured-img:hover, .maxi-featured-img:hover {
+    opacity: 0.7;
+  }
+  
+  
+  /*--------------------------- Bottom icons line ---------------------*/
+  .icons-line {
+    justify-content: space-evenly;
+  }
+  
+  
+  /*-------------------------- Bottom section --------------------*/
+  .bottom-links-container {
+    align-items: flex-start;
+  }
+  
+  .bottom-links-container div {
+    margin-right: 70px;
+  }
+  
+  #bottom-land-language-form {
+    width: 250px;
+    margin-right: 60px;
+  }
+  
+  .bottom-land-language-form > * {
+    margin: 5px;
+  }
+  
+  
+  /*-------------------------- Footer ---------------------------*/
+  footer {
+    background-color: white;
+    text-align: center;
+    padding: 10px;
+  }
+  
+  
+  
+  /* ~~~~~~~~~~~~~~~~~~~~~~~ Responsive design ~~~~~~~~~~~~~~~~~~~ */
+  @media only screen and (max-width: 1030px) {
+    .h-container {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  
+    .v-container {
+      align-items: center;
+    }
+  
+    .v-container > * > * {
+      width: 100%;
+    }
+  
+    .hero {
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  
+    .hero .intro {
+      align-self: center;
+    }
+  
+    .hero img {
+      width: 100%;
+    }
+  
+    .maxi-featured-img {
+      display: none;
+    }
+  
+    .icon-link-pair {
+      flex-direction: row;
+    }
+  }
+  
+  @media only screen and (max-width: 700px) {
+    .global-navigation ul li {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .hero .intro {
+      width: auto;
+    }
+  }
+  
+  @media only screen and (max-width: 580px) {
+    .left-corner-container {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+  
+    .left-corner-container > * {
+      justify-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+    }
+  
+    .logo-container img {
+      width: 100%;
+      height: 100%;
+    }
+  
+    .search-bar {
+      width: 100%;
+    }
+  
+    .bottom-links-container div {
+      margin-right: 0px;
+    }
+  
+    .right-corner-container {
+      display: none;
+    }
+  }
+  
