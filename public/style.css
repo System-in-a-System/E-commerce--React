@@ -147,6 +147,10 @@ body {
   .mini-featured-img:hover, .maxi-featured-img:hover {
     opacity: 0.7;
   }
+
+  .product-container {
+    align-self: center;
+  }
   
   
   /*--------------------------- Bottom icons line ---------------------*/

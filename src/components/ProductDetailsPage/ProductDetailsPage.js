@@ -14,8 +14,20 @@ const ProductDetailsPage = () => {
             .then(product => setProduct(product));
     }, []);
 
-    return product && (
-        <h1>Here comes product details for {product.name}</h1>
+    return (
+      product && (
+        <div className="h-container product-container">
+          <div className="product-details-img-container">
+            <img className="product-img" alt="product" src={product.imageUrl} />
+          </div>
+          <div className="v-container product-details-container">
+            <h1>{product.name}</h1>
+            <p>{product.descritpion}</p>
+            <p>Pris: 99 SEK</p>
+            <button>Lägg i varukorgen</button>
+          </div>
+        </div>
+      )
     );
     
 };
