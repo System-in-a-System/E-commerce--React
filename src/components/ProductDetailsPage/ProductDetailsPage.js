@@ -12,7 +12,7 @@ const ProductDetailsPage = () => {
         fetch(`http://localhost:5000/api/products/${urlSlug}`)
             .then(resp => resp.json())
             .then(product => setProduct(product));
-    }, []);
+    }, [urlSlug]);
 
     return (
       product && (
