@@ -25,7 +25,7 @@ const SearchResultPage = () => {
           <Link to={`/products/${x.urlSlug}`}>
             <div className="h-container search-result-container">
               <img
-                src="https://images.ru.prom.st/292940953_w640_h640_poshiv-futbolok.jpg"
+                src={x.imageUrl}
                 alt="product"
               />
               <div className="v-container justify-between">
@@ -34,7 +34,7 @@ const SearchResultPage = () => {
                   <p>{x.description}</p>
                 </div>
                 <div>
-                  <p>Product price in SEK</p>
+                  <p>{x.price} SEK</p>
                 </div>
               </div>
             </div>
