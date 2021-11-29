@@ -1,8 +1,13 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
+import RegisterPage from "./components/RegisterPage/RegisterPage";
+import LoginPage from "./components/LoginPage/LoginPage";
+import MyAccountPage from "./components/MyAccountPage/MyAccountPage";
 import SearchResultPage from "./components/SearchResultPage/SearchResultPage";
 import ProductDetailsPage from "./components/ProductDetailsPage/ProductDetailsPage";
+import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import MainMenu from "./components/HomePage/MainMenu";
 
 const App = () => {
@@ -53,15 +58,15 @@ const App = () => {
           </div>
 
           <div className="icon-container">
-            <a href="/">
+            <Link to="/">
               <i className="material-icons">home</i>
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/checkout">
               <i className="material-icons">shopping_cart</i>
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/login">
               <i className="material-icons">login</i>
-            </a>
+            </Link>
           </div>
         </div>
       </header>
@@ -79,6 +84,10 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="search" element={<SearchResultPage />} />
           <Route path="/products/:urlSlug" element={<ProductDetailsPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/myAccount" element={<MyAccountPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
         </Routes>
       </main>
 

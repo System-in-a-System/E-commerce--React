@@ -14,6 +14,12 @@ const ProductDetailsPage = () => {
             .then(product => setProduct(product));
     }, [urlSlug]);
 
+    const handleClick = (e) => {
+      const cart = JSON.parse(sessionStorage.getItem("cart")) || {content: []};
+      cart.content.push(product);
+      sessionStorage.setItem("cart", JSON.stringify(cart));
+    }
+
     return (
       product && (
         <div className="h-container product-details-container">
@@ -24,7 +30,7 @@ const ProductDetailsPage = () => {
             <h1>{product.name}</h1>
             <p>{product.description}</p>
             <p>Pris: 99 SEK</p>
-            <button>Lägg i varukorgen</button>
+            <button onClick={handleClick}>Lägg i varukorgen</button>
           </div>
         </div>
       )
