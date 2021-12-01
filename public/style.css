@@ -74,6 +74,14 @@ body {
     margin: 5px;
     font-size: 25px;
   }
+
+  .shopping-cart-activated {
+    position: absolute;
+    background-color:orange;
+    height: 5px;
+    width: 5px; 
+    border-radius: 50%;
+  }
   
   
   /*-------------------- Global navigation ---------------*/

@@ -13,6 +13,9 @@ import MainMenu from "./components/HomePage/MainMenu";
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
+  const userIsLoggedIn = localStorage.getItem("logged");
+  const shoppingCartIsActivated = sessionStorage.getItem("cart");
+
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -62,11 +65,19 @@ const App = () => {
               <i className="material-icons">home</i>
             </Link>
             <Link to="/checkout">
-              <i className="material-icons">shopping_cart</i>
+              <i className="material-icons">{shoppingCartIsActivated && <div className="shopping-cart-activated"></div>}shopping_cart</i>
             </Link>
-            <Link to="/login">
-              <i className="material-icons">login</i>
-            </Link>
+            
+            {!userIsLoggedIn && (
+              <Link to="/login">
+                <i className="material-icons">login</i>
+              </Link>
+            )}
+            {userIsLoggedIn && (
+              <Link to="/myAccount">
+                <i className="material-icons">account_circle</i>
+              </Link>
+            )}
           </div>
         </div>
       </header>
