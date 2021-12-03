@@ -1,24 +1,30 @@
 import Hero from "./Hero";
 import SpotList from "./SpotList";
 import PopularProducts from "./PopularProducts";
+import { useSelector } from "react-redux";
+
 
 const HomePage = () => {    
+
+  const currentPage = useSelector((state) => state.pages.home);
+  const productsPage = useSelector((state) => state.pages.products);
+
+  const productsPageArray = Object.values(productsPage);
+
+  const popularProducts = currentPage.popularProducts.map((id) => {
+    return productsPageArray.find((product) => product.id === id);
+  });
+
+  const { hero, spotList } = currentPage;
+
     return (
-      <div>
-        <Hero
-          heading="Lorem ipsum dolor"
-          message="
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nesciunt
-            aspernatur, libero iure deserunt autem quia eaque assumenda nulla
-            earum minus aliquam, vero animi sunt voluptate quod provident cumque
-            commodi officia."
-          imageUrl="https://img4.goodfon.ru/original/3200x1800/a/81/natali-portman-natalie-portman-aktrisa-model-briunetka-kraso.jpg"
-          buttonTitle="Click me!"
-          buttonLink="https://www.pinterest.com/patsprings/freaky-fashion/"
-        />
-        <SpotList />
-        <PopularProducts />
+      currentPage ? (
+        <div>
+        <Hero {...hero} />
+        <SpotList spotList={spotList}/>
+        <PopularProducts popularProducts={popularProducts}/>
       </div>
+      ) : <h1>No Data</h1>
     ); 
 };
 

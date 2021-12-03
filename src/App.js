@@ -1,5 +1,6 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import RegisterPage from "./components/RegisterPage/RegisterPage";
@@ -11,10 +12,12 @@ import CheckoutPage from "./components/CheckoutPage/CheckoutPage";
 import MainMenu from "./components/HomePage/MainMenu";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-
+  const mainMenuItems = useSelector((state) => state.pages.home.mainMenu);
+  
   const userIsLoggedIn = localStorage.getItem("logged");
   const shoppingCartIsActivated = sessionStorage.getItem("cart");
+  
+  const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
 
@@ -82,13 +85,7 @@ const App = () => {
         </div>
       </header>
 
-      <MainMenu
-        items={[
-          { id: 1, name: "Hem", href: "/" },
-          { id: 2, name: "Rea", href: "/" },
-          { id: 3, name: "Kontakt", href: "/" },
-        ]}
-      />
+      <MainMenu items={mainMenuItems}/>
 
       <main>
         <Routes>

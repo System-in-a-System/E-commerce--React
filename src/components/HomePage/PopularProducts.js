@@ -1,21 +1,12 @@
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const PopularProducts = () => {
-  const [products, setProducts] = useState([]);
-
-  useEffect(() => {
-    fetch("http://localhost:5000/api/products")
-      .then((resp) => resp.json())
-      .then((products) => setProducts(products));
-  }, []);
-
+const PopularProducts = ({ popularProducts }) => {
   return (
-    products && (
+    popularProducts && (
       <div className="popular-products-section">
-        <h1 style={{textAlign: "center"}}>Våra produkter</h1>
+        <h1 style={{ textAlign: "center" }}>Våra produkter</h1>
         <div className="grid-container">
-          {products.map((product) => (
+          {popularProducts.map((product) => (
             <div className="v-container product-container">
               <Link to={`/products/${product.urlSlug}`}>
                 <img
@@ -24,9 +15,9 @@ const PopularProducts = () => {
                   src={product.imageUrl}
                 />
                 <div className="h-container">
-                    <h3>{product.name}</h3>
-                    <h3>{product.price} SEK</h3>
-                </div>               
+                  <h3>{product.name}</h3>
+                  <h3>{product.price} SEK</h3>
+                </div>
               </Link>
             </div>
           ))}
