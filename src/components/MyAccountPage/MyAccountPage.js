@@ -15,17 +15,40 @@ const MyAccountPage = () => {
 
   return (
     userInfo && (
-      <div style={{ backgroundColor: "white" }}>
-        <h1>
+      <div
+        style={{
+          backgroundColor: "white",
+          margin: "1%",
+          padding: "1%",
+          paddingBottom: "10%",
+        }}
+      >
+        <h1 style={{ textAlign: "center", padding: "3%" }}>
           {userInfo.firstName} {userInfo.lastName}
         </h1>
-        <h4>Orders:</h4>
+        <h3>Orders:</h3>
+        <hr />
+        <div
+          className="h-container"
+          style={{ margin: "1%", padding: "1%", fontWeight: "bold" }}
+        >
+          <div className="h-container" style={{ width: "30%" }}>
+            <div>Order No</div>
+            <div>Datum</div>
+          </div>
+          <div>Totalt</div>
+        </div>
+
         {userInfo.orders.map((order) => (
-          <div>
-            {order.id} {order.name} {order.price}
+          <div className="h-container" style={{ margin: "1%", padding: "1%", border: "1px solid black"}}>
+            <div className="h-container" style={{ width: "30%" }}>
+              <div>{order.orderNumber}</div>
+              <div>{order.date}</div>
+            </div>
+            <div>{order.totalPrice} SEK</div>
           </div>
         ))}
-        <button onClick={handleClick}>Log out</button>
+        <button style={{float: "right", margin: "1%"}} onClick={handleClick}>Log out</button>
       </div>
     )
   );

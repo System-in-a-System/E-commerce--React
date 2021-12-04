@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const LoginPage = () => {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [statusMessage, setStatusMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -21,18 +22,29 @@ const LoginPage = () => {
         localStorage.setItem("logged", JSON.stringify(userInfo));
         navigate("/myAccount");
       } else {
-        console.log("the password is incorrect");
+        setStatusMessage("Fel lösenord");
+        setUsername("");
+        setPassword("");
       }
     } else {
-      console.log("username not found");
+      setStatusMessage("Fel användarnamn");
+      setUsername("");
+      setPassword("");
     }
   };
 
   return (
-    <div style={{ backgroundColor: "white" }}>
-      <form onSubmit={handleSubmit}>
-        <div className="col-6 mb3">
-          <label htmlFor="userName">Username</label>
+    <div style={{ backgroundColor: "white", margin: "1%", padding: "1%" }}>
+      <h2 style={{ textAlign: "center", fontSize: "40px", padding: "1%" }}>
+        Logga in
+      </h2>
+      <form
+        onSubmit={handleSubmit}
+        className="v-container"
+        style={{ width: "30%", alignItems: "self-end" }}
+      >
+        <div style={{ padding: "1%" }}>
+          <label htmlFor="userName">E-Post </label>
           <input
             type="text"
             id="userName"
@@ -40,8 +52,8 @@ const LoginPage = () => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div className="col-6 mb3">
-          <label htmlFor="userName">Password</label>
+        <div style={{ padding: "1%" }}>
+          <label htmlFor="userName">Lösenord </label>
           <input
             type="text"
             id="password"
@@ -50,10 +62,16 @@ const LoginPage = () => {
           />
         </div>
 
-        <button type="submit">Login</button>
-      </form>
+        <button type="submit" style={{ margin: "1%", marginRight: "3%" }}>
+          Login
+        </button>
 
-      <Link to="/register">Register an account</Link>
+        <div style={{ color: "red" }}>{statusMessage}</div>
+
+        <div style={{ marginTop: "2px", margin: "1%", padding: "1%" }}>
+          <Link to="/register">Skapa ett konto</Link>
+        </div>
+      </form>
     </div>
   );
 };

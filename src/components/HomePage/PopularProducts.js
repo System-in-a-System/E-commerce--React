@@ -4,7 +4,7 @@ const PopularProducts = ({ popularProducts }) => {
   return (
     popularProducts && (
       <div className="popular-products-section">
-        <h1 style={{ textAlign: "center" }}>Våra produkter</h1>
+        <h1 style={{ textAlign: "center", fontSize: "45px" }}>Populära Produkter</h1>
         <div className="grid-container">
           {popularProducts.map((product) => (
             <div className="v-container product-container">

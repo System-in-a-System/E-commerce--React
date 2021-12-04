@@ -119,31 +119,30 @@ body {
     margin-right: 20px;
   }
   
-  .hero .intro button {
-    width: 100px;
-    height: 50px;
-    background-color: white;
-    color: black;
-    border: 2px solid rgb(190, 0, 0);
-  }
-  
-  .hero .intro button:hover {
-    background-color: rgb(190, 0, 0);
-  }
-  
   .hero img {
     align-self: flex-end;
     width: 68vw;
   }
   
-  
-  /*------------------------ Featured products section ---------------- */
-  h2 {
-    align-self: center;
+  button {
+    width: 100px;
+    height: 50px;
+    color: black;
+    background-color: white;
+    border: 2px solid rgb(190, 0, 0);
+    box-shadow: 3px 5px rgb(51, 50, 50);
   }
   
+  button:hover {
+    background-color: rgb(190, 0, 0);
+    box-shadow: none;
+  }
+  
+  
+  
+  /*------------------------ Featured products section ---------------- */  
   .mini-featured-img {
-    width: 22vw;
+    width: 100%;
   }
   
   .maxi-featured-img {
@@ -161,8 +160,8 @@ body {
   }
 
   .product-container {
-    width: 260px;
-    border: 0.1px solid #80808040;
+    width: 20vw;
+    border: 0.1px solid #adadad40;
     box-shadow: #8080804a 5px 5px;
     color: rgb(70 70 70 / 0.58);
     margin-bottom: 7px;
@@ -171,7 +170,7 @@ body {
 
     .product-container :hover {
         opacity: 0.7;
-        transform: scale(1.05);
+        transform: scale(1.03);
     }
   
   .product-details-container {
@@ -224,7 +223,7 @@ body {
 }
 
   .search-result-container:hover {
-      color: rgb(236, 236, 162);
+      color: rgb(167, 2, 2);
       transform: scale(1.01);
   }
 

@@ -13,7 +13,7 @@ const SpotList = ({ spotList }) => {
                 src={spot.imageUrl}
                 alt="featured product"
               />
-              <h3 style={{ position: "absolute", alignSelf: "center" }}>
+              <h3 style={{ position: "absolute", alignSelf: "center", fontSize: "60px" }}>
                 {spot.title}
               </h3>
             </div>
