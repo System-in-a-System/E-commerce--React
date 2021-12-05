@@ -3,10 +3,10 @@ const SpotList = ({ spotList }) => {
     spotList && (
       <div className="h-container">
         {spotList.map((spot) => (
-          <a href={spot.href}>
+          <a href={spot.href} className="spotLink">
             <div
               className="v-container"
-              style={{ position: "relative", justifyContent: "center" }}
+              style={{ position: "relative", justifyContent: "center", width: "32vw", height: "20vw" }}
             >
               <img
                 className="maxi-featured-img"

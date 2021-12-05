@@ -54,7 +54,7 @@ const App = () => {
 
         <div className="right-corner-container">
           <div>
-            <label>Choose a language:</label>
+            <label>Välj språk: </label>
             <select name="languages" id="languages">
               <option value="Swedish">Svenska</option>
               <option value="Danish">Danska</option>
