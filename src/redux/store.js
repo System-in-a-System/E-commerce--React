@@ -38,4 +38,4 @@ export const loadInitial = (dispatch) => {
 
 const composeEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
 
-export default createStore(reducer, composeEnhancer);
+export default createStore(reducer, composeEnhancer); 

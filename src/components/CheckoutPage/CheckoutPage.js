@@ -77,7 +77,7 @@ const CheckoutPage = () => {
           <div style={{ width: "70%" }}>{product.name}</div>
           <div className="h-container" style={{ width: "20%" }}>
             <div>{product.quantity}</div>
-            <div>{product.price * product.quantity}</div>
+            <div>{product.price * product.quantity} SEK</div>
           </div>
         </div>
       ))}
