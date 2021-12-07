@@ -2,20 +2,15 @@ const SpotList = ({ spotList }) => {
   return (
     spotList && (
       <div className="h-container">
-        {spotList.map((spot) => (
-          <a href={spot.href} className="spotLink">
-            <div
-              className="v-container"
-              style={{ position: "relative", justifyContent: "center", width: "32vw", height: "20vw" }}
-            >
+        {spotList.map((spot, i) => (
+          <a href={spot.href} key={i} className="spotLink">
+            <div className="v-container spot-container">
               <img
-                className="maxi-featured-img"
+                className="spot-img"
                 src={spot.imageUrl}
                 alt="featured product"
               />
-              <h3 style={{ position: "absolute", alignSelf: "center", fontSize: "60px" }}>
-                {spot.title}
-              </h3>
+              <h3>{spot.title}</h3>
             </div>
           </a>
         ))}

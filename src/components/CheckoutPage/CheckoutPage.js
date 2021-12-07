@@ -11,57 +11,39 @@ const CheckoutPage = () => {
   const handleClick = (e) => {
     if (userIsLoggedIn) {
       const customer = JSON.parse(userIsLoggedIn);
+
       const orderNumber = Math.floor(Math.random() * (99999 - 10000) + 10000);
-      const today = new Date();
-      const purchaseDate =
-        today.getFullYear() +
-        "-" +
-        (today.getMonth() + 1) +
-        "-" +
-        today.getDate();
+      const purchaseDate = new Date();
+      const fullPurchaseDate = purchaseDate.getFullYear() + "-" + (purchaseDate.getMonth() + 1) + "-" + purchaseDate.getDate();
       const content = products.slice();
-      const totalPrice = products.reduce(
-        (accumulator, item) => accumulator + item.price,
-        0
-      );
+      const totalPrice = products.reduce((accumulator, item) => accumulator + item.price, 0);
 
       const order = {
         orderNumber: orderNumber,
-        date: purchaseDate,
+        date: fullPurchaseDate,
         content: content,
         totalPrice: totalPrice,
       };
 
-      customer.orders.push(order);
+      customer.orders?.push(order);
 
       localStorage.setItem(customer.email, JSON.stringify(customer));
       localStorage.setItem("logged", JSON.stringify(customer));
-      alert(
-        "Tack för att du handlar hos oss! Vi kommer att kontakta dig inom kort"
-      );
+      alert("Tack för att du handlar hos oss! Vi kommer att kontakta dig inom kort");
 
       sessionStorage.removeItem("cart");
       navigate("/myAccount");
+
     } else {
       navigate("/login");
     }
   };
 
   return (
-    <div
-      style={{
-        backgroundColor: "white",
-        margin: "1%",
-        padding: "1%",
-        paddingBottom: "10%",
-      }}
-    >
-      <h1 style={{ textAlign: "center", padding: "3%" }}>Checka ut</h1>
+    <div className="form-container">
+      <h1>Checka ut</h1>
 
-      <div
-        className="h-container"
-        style={{ margin: "1%", padding: "1%", fontWeight: "bold" }}
-      >
+      <div className="h-container" style={{ fontWeight: "bold" }}>
         <div style={{ width: "70%" }}>Produkt</div>
         <div className="h-container" style={{ width: "20%" }}>
           <div>Antal</div>
@@ -69,11 +51,8 @@ const CheckoutPage = () => {
         </div>
       </div>
 
-      {products.map((product) => (
-        <div
-          className="h-container"
-          style={{ margin: "1%", padding: "1%", border: "1px solid black" }}
-        >
+      {products.map((product, i) => (
+        <div key={i} className="h-container" style={{ border: "1px solid black" }}>
           <div style={{ width: "70%" }}>{product.name}</div>
           <div className="h-container" style={{ width: "20%" }}>
             <div>{product.quantity}</div>
@@ -81,21 +60,15 @@ const CheckoutPage = () => {
           </div>
         </div>
       ))}
+
       {products.length === 0 && (
-        <div style={{ margin: "1%", padding: "1%" }}>
+        <div>
           Korgen är tom. Handla lite först
         </div>
       )}
+
       {products.length > 0 && (
-        <button
-          style={{
-            marginTop: "2%",
-            marginLeft: "41%",
-            marginRight: "50%",
-            width: "17vw",
-          }}
-          onClick={handleClick}
-        >
+        <button onClick={handleClick}>
           Köp
         </button>
       )}

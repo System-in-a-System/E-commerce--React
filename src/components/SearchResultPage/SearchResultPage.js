@@ -20,10 +20,9 @@ const SearchResultPage = () => {
         <div className="search-results-count">
           {searchResult.count} träffar på "{q}"
         </div>
-
-        {searchResult.result.map((x) => (
+        {searchResult.result?.map((x, i) => (
           <Link to={`/products/${x.urlSlug}`}>
-            <div className="h-container search-result-container">
+            <div key={i} className="h-container search-result-container">
               <img
                 src={x.imageUrl}
                 alt="product"

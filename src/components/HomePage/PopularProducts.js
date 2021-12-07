@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 const PopularProducts = ({ popularProducts }) => {
   return (
-    popularProducts && (
-      <div className="popular-products-section">
-        <h1 style={{ textAlign: "center", fontSize: "45px" }}>Populära Produkter</h1>
+    <div className="popular-products-section">
+      <h1>Populära Produkter</h1>
+      {popularProducts ? (
         <div className="grid-container">
-          {popularProducts.map((product) => (
-            <div className="v-container product-container">
+          {popularProducts.map((product, i) => (
+            <div key={i} className="v-container product-container">
               <Link to={`/products/${product.urlSlug}`}>
                 <img
-                  className="mini-featured-img"
+                  className="mini-product-img"
                   alt="product"
                   src={product.imageUrl}
                 />
@@ -22,8 +22,10 @@ const PopularProducts = ({ popularProducts }) => {
             </div>
           ))}
         </div>
-      </div>
-    )
+      ) : (
+        <div>Inga produkter hittas...</div>
+      )}
+    </div>
   );
 };
 

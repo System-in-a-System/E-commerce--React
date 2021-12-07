@@ -15,23 +15,13 @@ const MyAccountPage = () => {
 
   return (
     userInfo && (
-      <div
-        style={{
-          backgroundColor: "white",
-          margin: "1%",
-          padding: "1%",
-          paddingBottom: "10%",
-        }}
-      >
-        <h1 style={{ textAlign: "center", padding: "3%" }}>
-          {userInfo.firstName} {userInfo.lastName}
-        </h1>
+      <div className="form-container">
+        <h1>{userInfo.firstName} {userInfo.lastName}</h1>
+        
         <h3>Orders:</h3>
         <hr />
-        <div
-          className="h-container"
-          style={{ margin: "1%", padding: "1%", fontWeight: "bold" }}
-        >
+
+        <div className="h-container" style={{ fontWeight: "bold" }}>
           <div className="h-container" style={{ width: "30%" }}>
             <div>Order No</div>
             <div>Datum</div>
@@ -39,8 +29,8 @@ const MyAccountPage = () => {
           <div>Totalt</div>
         </div>
 
-        {userInfo.orders.map((order) => (
-          <div className="h-container" style={{ margin: "1%", padding: "1%", border: "1px solid black"}}>
+        {userInfo.orders?.map((order, i) => (
+          <div key={i} className="h-container item">
             <div className="h-container" style={{ width: "30%" }}>
               <div>{order.orderNumber}</div>
               <div>{order.date}</div>
@@ -48,7 +38,10 @@ const MyAccountPage = () => {
             <div>{order.totalPrice} SEK</div>
           </div>
         ))}
-        <button style={{float: "right", margin: "1%"}} onClick={handleClick}>Log out</button>
+
+        <button style={{ float: "right", margin: "1%" }} onClick={handleClick}>
+          Logga ut
+        </button>
       </div>
     )
   );

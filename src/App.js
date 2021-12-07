@@ -174,7 +174,7 @@ const App = () => {
             </div>
           </div>
         </div>
-        <small>Copyright 2020 FreakyFashion</small>
+        <small>Copyright 2021 FreakyFashion</small>
       </footer>
     </div>
   );

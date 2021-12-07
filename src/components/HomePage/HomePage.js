@@ -5,15 +5,14 @@ import { useSelector } from "react-redux";
 
 const HomePage = () => {
   const currentPage = useSelector((state) => state.pages.home);
+  
+  const { hero, spotList } = currentPage;
+
   const productsPage = useSelector((state) => state.pages.products);
-
   const productsPageArray = Object.values(productsPage);
-
   const popularProducts = currentPage.popularProducts.map((id) => {
     return productsPageArray.find((product) => product.id === id);
   });
-
-  const { hero, spotList } = currentPage;
 
   return currentPage ? (
     <div>

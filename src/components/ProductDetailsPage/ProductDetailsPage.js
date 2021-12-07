@@ -19,19 +19,17 @@ const ProductDetailsPage = () => {
       quantity: 1,
     };
 
-    const productAlreadyInCart = cart.content.find(
-      (contentproduct) => contentproduct.id === productToPutInCart.id
-    );
+    const productAlreadyInCart = cart.content.find(contentproduct => 
+      contentproduct.id === productToPutInCart.id);
 
     if (productAlreadyInCart) {
       const updatedContent = cart.content.map((contentproduct) => {
-        if (contentproduct.id === productToPutInCart.id) {
-          contentproduct.quantity++;
-        }
+        if (contentproduct.id === productToPutInCart.id) contentproduct.quantity++;
         return contentproduct;
       });
       cart.content = updatedContent;
       sessionStorage.setItem("cart", JSON.stringify(cart));
+     
     } else {
       cart.content.push(productToPutInCart);
       sessionStorage.setItem("cart", JSON.stringify(cart));
